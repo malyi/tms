@@ -1,0 +1,29 @@
+<!-- Main navigation -->
+<header>
+  <!--Navbar-->
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar default-color-dark" [ngClass]="{'navbar-transparent': currentRouteIndex}">
+    <mdb-navbar-brand>
+      <a class="logo navbar-brand waves-light" mdbWavesEffect href="#"><strong>PMsystem</strong></a>
+    </mdb-navbar-brand>
+    <links>
+      <ul class="navbar-nav mr-auto">
+        <li *ngFor="let link of links" class="nav-item waves-light">
+          <a routerLink="{{ link.handle }}" class="nav-link waves-light white-text" mdbWavesEffect>{{link.title}}</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item dropdown" mdbDropdown>
+          <a class="nav-link dropdown-toggle waves-effect waves-light" mdbDropdownToggle>
+            <i class="fa fa-user"></i>
+          </a>
+          <div class="dropdown-menu dropdown-primary">
+            <a class="dropdown-item waves-effect waves-light" href="javascript:;;">Action</a>
+            <a class="dropdown-item waves-effect waves-light" href="javascript:;;">Another action</a>
+            <a class="dropdown-item waves-effect waves-light" href="javascript:;;">Something else here</a>
+          </div>
+        </li>
+      </ul>
+    </links>
+  </mdb-navbar>
+</header>
+<!-- Main navigation -->

@@ -1,0 +1,103 @@
+<div class="container page-container login">
+  <div class="row">
+    <div class="col-5 mx-auto">
+      <div class="card">
+        <div class="card-header default-color white-text text-center py-4">
+          <p class="h4 mb-0">Register account</p>
+        </div>
+        <div class="card-body p-0">
+          <div
+            *ngIf="message.text"
+            class="alert alert-{{message.type}}"
+            role="alert">
+            {{message.text}}
+          </div>
+          <form [formGroup]="registerForm" class="text-center border border-light p-5" (submit)="onSubmit()">
+
+            <div class="input-group md-form mb-5">
+              <input
+                type="text"
+                id="firstNameReg"
+                formControlName="firstName"
+                class="form-control"
+                [errorMessage]="validationMessages.field.error"
+                [validateSuccess]="false"
+                mdbInputDirective>
+              <label for="firstNameReg">First name</label>
+            </div>
+
+            <div class="input-group md-form mb-5">
+              <input
+                type="text"
+                id="lastNameReg"
+                formControlName="lastName"
+                class="form-control"
+                [errorMessage]="validationMessages.field.error"
+                [validateSuccess]="false"
+                mdbInputDirective>
+              <label for="lastNameReg">Last name</label>
+            </div>
+
+            <div class="input-group md-form mb-5">
+              <input
+                type="email"
+                id="emailReg"
+                formControlName="email"
+                class="form-control"
+                [validateError]="false"
+                [validateSuccess]="false"
+                [ngClass]="{'field-danger': registerForm.get('email').dirty && registerForm.get('email')['errors']}"
+                mdbInputDirective>
+              <label for="emailReg">Your email</label>
+              <div
+                *ngIf="isEmailExist"
+                class="form-message text-danger">
+                This email already used!
+              </div>
+              <div
+                *ngIf="isEmailInvalid"
+                class="form-message text-danger">
+                {{validationMessages.email.error}}
+              </div>
+            </div>
+
+            <div class="input-group md-form mb-5">
+              <input
+                type="password"
+                id="passwordReg"
+                formControlName="password"
+                class="form-control"
+                [errorMessage]="validationMessages.password.error"
+                [validateSuccess]="false"
+                mdbInputDirective>
+              <label for="passwordReg">Your password</label>
+            </div>
+            <div class="input-group md-form mb-5">
+              <input
+                type="password"
+                id="passwordConfirmReg"
+                formControlName="passwordConfirm"
+                class="form-control"
+                [ngClass]="{'field-danger': isPasswordDifferent}"
+                [validateError]="false"
+                [validateSuccess]="false"
+                mdbInputDirective>
+              <label for="passwordConfirmReg">Confirm your password</label>
+              <div
+                class="form-message text-danger"
+                [hidden]="!isPasswordDifferent">
+                Passwords do not match !
+              </div>
+            </div>
+
+            <div>
+              <button mdbBtn color="default" block="true" class="my-4" type="submit" [disabled]="registerForm.invalid">Register</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

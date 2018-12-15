@@ -1,0 +1,49 @@
+<div class="container page-container login">
+  <div class="row">
+    <div class="col-5 mx-auto">
+      <div class="card">
+        <div class="card-header default-color white-text text-center py-4">
+          <p class="h4 mb-0">Sign in</p>
+        </div>
+        <div class="card-body p-0">
+          <div
+            *ngIf="message.text"
+            class="alert alert-{{message.type}}"
+            role="alert">
+            {{message.text}}
+          </div>
+          <form [formGroup]="loginForm" class="text-center border border-light p-5" (submit)="onSubmit()">
+
+            <div class="input-group md-form mb-5">
+              <input mdbInputDirective
+                     [errorMessage]="validationMessages.email.error"
+                     [validateSuccess]="false"
+                     formControlName="email"
+                     type="email"
+                     class="form-control"
+                     id="email">
+              <label for="email">Type your e-mail</label>
+            </div>
+
+            <div class="input-group md-form mb-5">
+              <input mdbInputDirective
+                     [errorMessage]="validationMessages.password.error"
+                     [validateSuccess]="false"
+                     formControlName="password"
+                     type="password"
+                     class="form-control"
+                     id="password">
+              <label for="password">Type your password</label>
+            </div>
+
+            <button mdbBtn color="default" block="true" class="my-4" type="submit" [disabled]="loginForm.invalid">Sign in</button>
+
+            <p>Not a member?
+              <a routerLink="/account/registration">Register</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

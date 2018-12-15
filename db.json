@@ -1,0 +1,109 @@
+{
+  "users": [
+    {
+      "firstName": "Kos",
+      "lastName": "Malyi",
+      "email": "k@g.com",
+      "password": "111111",
+      "type": "admin",
+      "id": 1
+    },
+    {
+      "firstName": "Marina",
+      "lastName": "Mala",
+      "email": "mala@gmail.com",
+      "password": "111111",
+      "type": "user",
+      "id": 2
+    },
+    {
+      "firstName": "Jack",
+      "lastName": "Daniels",
+      "email": "jd@g.com",
+      "password": "zzzzzz",
+      "type": "user",
+      "id": 3
+    },
+    {
+      "firstName": "Robert",
+      "lastName": "Pattison",
+      "email": "rp@g.com",
+      "password": "zzzzzz",
+      "type": "user",
+      "id": 4
+    },
+    {
+      "firstName": "Bernard",
+      "lastName": "Trump",
+      "email": "bt@g.com",
+      "password": "zzzzzz",
+      "type": "user",
+      "id": 5
+    }
+  ],
+  "tasks": [
+    {
+      "title": "TItlte task",
+      "description": "hgjgjhgjgjgjg",
+      "user": {
+        "firstName": "Jack",
+        "lastName": "Daniels",
+        "email": "jd@g.com",
+        "password": "zzzzzz",
+        "type": "user",
+        "id": 3
+      },
+      "status": "todo",
+      "author": {
+        "firstName": "Kos",
+        "lastName": "Malyi",
+        "email": "k@g.com",
+        "type": "admin",
+        "id": 2
+      },
+      "id": 3
+    },
+    {
+      "title": "SOme new",
+      "description": "dsfsf",
+      "user": {
+        "firstName": "Marina",
+        "lastName": "Mala",
+        "email": "mala@gmail.com",
+        "password": "111111",
+        "type": "user",
+        "id": 2
+      },
+      "status": "todo",
+      "author": {
+        "firstName": "Kos",
+        "lastName": "Malyi",
+        "email": "k@g.com",
+        "type": "admin",
+        "id": 2
+      },
+      "id": 5
+    },
+    {
+      "title": "few",
+      "description": "fewf",
+      "user": {
+        "firstName": "Marina",
+        "lastName": "Mala",
+        "email": "mala@gmail.com",
+        "password": "111111",
+        "type": "user",
+        "id": 2
+      },
+      "status": "todo",
+      "author": {
+        "firstName": "Kos",
+        "lastName": "Malyi",
+        "email": "k@g.com",
+        "type": "admin",
+        "id": 2
+      },
+      "id": 6
+    }
+  ]
+}
