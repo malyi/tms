@@ -1,11 +1,41 @@
-.form-message{
+.form-message {
   position: absolute;
   top: 37px;
   font-size: .8rem;
   margin: 0;
   text-align: left;
 }
-.field-danger{
+.field-error{
+  color: #F44336;
+  font-size: .8rem;
+  margin: 0;
+  text-align: left;
+}
+.ng-select{
+  padding-bottom: 0;
+
+  .ng-select-container:after{
+    border-bottom: 1px solid #ced4da;
+  }
+}
+.form-error {
+  .ng-select-container:after {
+    border-bottom: 2px solid #F44336;
+  }
+}
+.field-danger {
   border-bottom: 1px solid #F44336 !important;
   box-shadow: 0 1px 0 0 #F44336 !important;
+}
+
+.ng-select.ng-select-focused .ng-select-container:after {
+  border-color: #4285f4;
+}
+
+.ng-select.ng-select-focused .ng-select-container .ng-value-container .ng-placeholder {
+  color: #4285f4;
+}
+
+.ng-select.ng-select-focused .ng-select-container .ng-arrow-wrapper .ng-arrow {
+  color: #4285f4;
 }

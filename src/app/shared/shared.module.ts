@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ButtonsModule, CardsFreeModule, CheckboxModule, IconsModule, InputsModule, WavesModule} from 'angular-bootstrap-md';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import {ButtonsModule, CardsFreeModule, CheckboxModule, IconsModule, InputsModul
     CheckboxModule,
     IconsModule,
     InputsModule,
-    WavesModule
+    WavesModule,
+    NgSelectModule
   ],
   exports: [
     ReactiveFormsModule,
@@ -21,7 +23,8 @@ import {ButtonsModule, CardsFreeModule, CheckboxModule, IconsModule, InputsModul
     CheckboxModule,
     IconsModule,
     InputsModule,
-    WavesModule
+    WavesModule,
+    NgSelectModule
   ]
 })
 

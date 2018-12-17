@@ -18,6 +18,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { GmapComponent } from './components/gmap/gmap.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import {NotificationsModule} from './components/notifications/notifications.module';
+import {FilterPipe} from './shared/pipes/search.pipe';
 
 
 
@@ -29,7 +30,8 @@ import {NotificationsModule} from './components/notifications/notifications.modu
     FooterComponent,
     ContactComponent,
     GmapComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    FilterPipe
   ],
   imports: [
     CoreModule,

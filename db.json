@@ -44,7 +44,10 @@
   "tasks": [
     {
       "title": "TItlte task",
-      "description": "hgjgjhgjgjgjg",
+      "description": "some",
+      "estimation": 150,
+      "tracked": 60,
+      "progress": 40,
       "user": {
         "firstName": "Jack",
         "lastName": "Daniels",
@@ -53,19 +56,22 @@
         "type": "user",
         "id": 3
       },
-      "status": "todo",
+      "status": "in progress",
+      "id": 1,
       "author": {
         "firstName": "Kos",
         "lastName": "Malyi",
         "email": "k@g.com",
         "type": "admin",
         "id": 2
-      },
-      "id": 3
+      }
     },
     {
-      "title": "SOme new",
-      "description": "dsfsf",
+      "title": "TItlte task",
+      "description": "hgjhgghj",
+      "estimation": 60,
+      "tracked": 30,
+      "progress": 50,
       "user": {
         "firstName": "Marina",
         "lastName": "Mala",
@@ -74,36 +80,39 @@
         "type": "user",
         "id": 2
       },
-      "status": "todo",
+      "status": "in progress",
+      "id": 2,
       "author": {
         "firstName": "Kos",
         "lastName": "Malyi",
         "email": "k@g.com",
         "type": "admin",
         "id": 2
-      },
-      "id": 5
+      }
     },
     {
-      "title": "few",
-      "description": "fewf",
+      "title": "sdf",
+      "description": "dsfds",
+      "estimation": 60,
+      "tracked": 60,
+      "progress": 100,
       "user": {
-        "firstName": "Marina",
-        "lastName": "Mala",
-        "email": "mala@gmail.com",
-        "password": "111111",
+        "firstName": "Robert",
+        "lastName": "Pattison",
+        "email": "rp@g.com",
+        "password": "zzzzzz",
         "type": "user",
-        "id": 2
+        "id": 4
       },
-      "status": "todo",
+      "status": "finished",
+      "id": 4,
       "author": {
         "firstName": "Kos",
         "lastName": "Malyi",
         "email": "k@g.com",
         "type": "admin",
         "id": 2
-      },
-      "id": 6
+      }
     }
   ]
 }

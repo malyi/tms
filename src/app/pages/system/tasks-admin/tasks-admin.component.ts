@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 import {ToastrService} from 'ngx-toastr';
 
 import {TasksService} from '../../../shared/services/tasks.service';
 import {Task} from '../../../shared/models/task.model';
+import {EditTaskComponent} from './edit-task/edit-task.component';
 
 @Component({
   selector: 'app-tasks-admin',
@@ -13,7 +14,10 @@ import {Task} from '../../../shared/models/task.model';
 export class TasksAdminComponent implements OnInit {
 
   tasksList: object[];
+  searchText = '';
   private sorted = false;
+
+  @ViewChild('editTask') editTask: EditTaskComponent;
 
   constructor(
     private tasksService: TasksService,
@@ -25,17 +29,22 @@ export class TasksAdminComponent implements OnInit {
     });
   }
 
-  newTaskAdded(task: Task) {
-    this.tasksList.push(task);
-  }
-
-  sortBy(by: string | any): void {
-
+  sortBy(by: string | any, key: string): void {
     this.tasksList.sort((a: any, b: any) => {
-      if (a[by] < b[by]) {
+      let sortA;
+      let sortB;
+
+      if (typeof a[by] === 'object'){
+        sortA = a[by][key];
+        sortB = b[by][key];
+      } else {
+        sortA = a[by];
+        sortB = b[by];
+      }
+      if (sortA < sortB) {
         return this.sorted ? 1 : -1;
       }
-      if (a[by] > b[by]) {
+      if (sortA > sortB) {
         return this.sorted ? -1 : 1;
       }
 
@@ -45,10 +54,24 @@ export class TasksAdminComponent implements OnInit {
     this.sorted = !this.sorted;
   }
 
+  newTaskAdded(task: Task) {
+    this.tasksList.push(task);
+  }
+
+  editedTask(task: Task) {
+    const taskIndex = this.tasksList.findIndex((item: Task) => item.id === task.id);
+    this.tasksList[taskIndex] = task;
+
+  }
+
   remove(task: Task, i) {
     this.tasksService.deleteTask(task).subscribe((data) => {
       this.tasksList.splice(i, 1);
       this.notification.info('Task deleted!');
     });
+  }
+
+  editTaskOpen(task: Task) {
+    this.editTask.open(task);
   }
 }

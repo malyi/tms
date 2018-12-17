@@ -7,16 +7,25 @@
         <mdb-card-header
           class="default-color py-2 d-flex justify-content-between align-items-center">
 
-          <div>
-            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-              <mdb-icon icon="th-large" class="mt-0"></mdb-icon>
-            </button>
-            <button type="button" class="btn btn-outline-white btn-rounded btn-sm px-2">
-              <mdb-icon icon="columns" class="mt-0"></mdb-icon>
-            </button>
+          <div class="d-flex">
+            <div class="white-text mr-2">
+              <input type="text" [(ngModel)]="searchText" class="form-control white-text border-white" placeholder="Search" id="search" mdbInputDirective>
+            </div>
+              <div class="btn-group" mdbDropdown>
+                <button type="button" mdbBtn size="sm" color="info" class="waves-light" mdbWavesEffect>Action</button>
+                <button type="button" mdbDropdownToggle mdbBtn size="sm" color="info" class="dropdown-toggle dropdown-toggle-split px-3 waves-light"
+                        mdbWavesEffect></button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+              </div>
           </div>
 
-          <a href="" class="white-text mx-3">All tasks</a>
+          <h3 class="white-text mx-3">All tasks</h3>
 
           <div>
             <app-add-task (onTaskAdd)="newTaskAdded($event)"></app-add-task>
@@ -35,9 +44,6 @@
               <!--Table head-->
               <thead>
               <tr>
-                <th>
-                  <mdb-checkbox></mdb-checkbox>
-                </th>
                 <th class="th-lg">
                   <a (click)="sortBy('title')">Task title
                     <mdb-icon icon="sort" class="ml-1"></mdb-icon>
@@ -49,12 +55,12 @@
                   </a>
                 </th>
                 <th class="th-lg">
-                  <a (click)="sortBy('author.firstName')">Created by
+                  <a (click)="sortBy('author', 'firstName')">Created by
                     <mdb-icon icon="sort" class="ml-1"></mdb-icon>
                   </a>
                 </th>
                 <th class="th-lg">
-                  <a (click)="sortBy('user.firstName')">Assigned to
+                  <a (click)="sortBy('user', 'firstName')">Assigned to
                     <mdb-icon icon="sort" class="ml-1"></mdb-icon>
                   </a>
                 </th>
@@ -63,13 +69,12 @@
                     <mdb-icon icon="sort" class="ml-1"></mdb-icon>
                   </a>
                 </th>
-                <th class="th-lg">
+                <th class="th-lg"><a (click)="sortBy('progress')">Progress
+                  <mdb-icon icon="sort" class="ml-1"></mdb-icon>
+                </a>
                 </th>
-                <!--<th class="th-lg">-->
-                  <!--<a (click)="sortBy('city')">City-->
-                    <!--<mdb-icon icon="sort" class="ml-1"></mdb-icon>-->
-                  <!--</a>-->
-                <!--</th>-->
+                <th class="th-lg">Manage
+                </th>
               </tr>
               </thead>
               <!--Table head-->
@@ -77,20 +82,43 @@
               <!--Table body-->
               <tbody>
               <tr *ngFor="let row of tasksList;let i = index">
-                <th scope="row">
-                  <mdb-checkbox></mdb-checkbox>
-                </th>
                 <td>{{row.title}}</td>
                 <td>{{row.description}}</td>
                 <td>{{row.author.firstName + ' ' + row.author.lastName }}</td>
                 <td>{{row.user.firstName + ' ' + row.user.lastName}}</td>
-                <td>{{row.status}}</td>
+                <td><mdb-badge pill="true" info="true" class="p-2">{{row.status}}</mdb-badge></td>
                 <td>
-                  <span class="table-edit">
-                    <button type="button" mdbBtn color="info" rounded="true" size="sm" class="my-0" >Edit</button>
+                  <span class="progress-value">{{row.progress | number:'1.0-0'}}%</span>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" [ngStyle]="{'width.%': row.progress}" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </td>
+                <td>
+                  <span class="table-edit mr-2">
+                    <button type="button"
+                            mdbBtn color="info"
+                            floating="true"
+                            rounded="true"
+                            outline="false"
+                            size="sm"
+                            data-toggle="modal"
+                            data-target="#addTask"
+                            (click)="editTaskOpen(row)" mdbWavesEffect>
+                      <mdb-icon icon="pencil"></mdb-icon>
+                    </button>
                   </span>
                   <span class="table-remove">
-                    <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(row, i)">Remove</button>
+                    <button type="button"
+                            mdbBtn
+                            color="danger"
+                            floating="true"
+                            rounded="true"
+                            outline="false"
+                            size="sm"
+                            class="btn-floating my-0"
+                            (click)="remove(row, i)">
+                      <mdb-icon icon="trash"></mdb-icon>
+                    </button>
                   </span>
                 </td>
                 <!--<td>{{row.city}}</td>-->
@@ -105,3 +133,4 @@
     </div>
   </div>
 </div>
+<app-edit-task #editTask (onTaskEdit)="editedTask($event)"></app-edit-task>

@@ -14,10 +14,10 @@ import {ToastrService} from 'ngx-toastr';
 export class AddTaskComponent implements OnInit {
   addTaskForm: FormGroup;
   userList: Array<User>;
-
   validationMessages = {
     titleError: 'Title can\'t be blank',
-    descriptionError: 'Description can\'t be blank'
+    descriptionError: 'Description can\'t be blank',
+    userError: 'Please choose User'
   };
 
   @ViewChild('frame') public contentModal;
@@ -36,7 +36,11 @@ export class AddTaskComponent implements OnInit {
     this.addTaskForm = fb.group({
       taskTitle: [null, Validators.required],
       taskDescription: [null, Validators.required],
-      taskUser: ['', Validators.required]
+      estimationHr: [0, Validators.required],
+      estimationMin: [0, Validators.required],
+      trackedHr: [0, Validators.required],
+      trackedMin: [0, Validators.required],
+      userId: [null, Validators.required]
     });
   }
 
@@ -48,8 +52,13 @@ export class AddTaskComponent implements OnInit {
       return;
     }
 
-    const {taskTitle, taskDescription, taskUser} = this.addTaskForm.value;
-    const task = new Task(taskTitle, taskDescription, taskUser);
+    const {taskTitle, taskDescription, estimationHr, estimationMin, trackedHr, trackedMin, userId} = this.addTaskForm.value;
+    const userIndex = this.userList.findIndex((user: User) => user.id === userId);
+    const estimation = estimationHr * 60 + estimationMin;
+    const tracked = trackedHr * 60 + trackedMin;
+    const progress = (tracked / estimation) * 100;
+    const status = ((progress <= 0) ? 'todo' : (progress >= 100) ? 'finished' : 'in progress' );
+    const task = new Task(taskTitle, taskDescription, estimation, tracked, progress, this.userList[userIndex], status);
 
     this.taskService.createNewTask(task)
       .subscribe((respTask: Task) => {

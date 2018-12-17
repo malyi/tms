@@ -25,6 +25,11 @@ export class TasksService extends BaseApi {
     return this.post('tasks', task);
   }
 
+  updateTask(task: Task): Observable<Task> {
+    console.log(task);
+    return this.put(`tasks/${task.id}`, task);
+  }
+
   deleteTask(task: Task): Observable<Task> {
     return this.delete(`tasks/${task.id}`);
   }
