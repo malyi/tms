@@ -41,7 +41,7 @@ export class EditTaskComponent implements OnInit {
       trackedMin: [0, Validators.required],
       userId: ['', Validators.required]
     });
-    this.usersService.getUserAllUsers('short').subscribe((users: Array<User>) => {
+    this.usersService.getAllUsers('full').subscribe((users: Array<User>) => {
       return this.userList = users;
     });
   }
@@ -66,15 +66,7 @@ export class EditTaskComponent implements OnInit {
     if (this.editTaskForm.invalid) {
       return;
     }
-
-    const {taskTitle, taskDescription, estimationHr, estimationMin, trackedHr, trackedMin, userId} = this.editTaskForm.value;
-    const userIndex = this.userList.findIndex((user: User) => user.id === userId);
-    const estimation = estimationHr * 60 + estimationMin;
-    const tracked = trackedHr * 60 + trackedMin;
-    const progress = (tracked / estimation) * 100;
-    const status = ((progress <= 0) ? 'todo' : (progress >= 100) ? 'finished' : 'in progress' );
-    const task = new Task(taskTitle, taskDescription, estimation, tracked, progress, this.userList[userIndex], status, this.taskId);
-
+    const task = this.taskService.generateTask(this.editTaskForm.value, this.userList, this.taskId);
     this.taskService.updateTask(task)
         .subscribe((respTask: Task) => {
           this.onTaskEdit.emit(respTask);

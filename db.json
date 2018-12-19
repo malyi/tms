@@ -6,154 +6,51 @@
       "email": "k@g.com",
       "password": "111111",
       "type": "admin",
+      "notifications": [],
       "id": 1
     },
     {
-      "firstName": "Marina",
-      "lastName": "Mala",
-      "email": "mala@gmail.com",
-      "password": "111111",
-      "type": "user",
-      "id": 2
-    },
-    {
-      "firstName": "Jack",
-      "lastName": "Daniels",
-      "email": "jd@g.com",
+      "firstName": "Jim",
+      "lastName": "Harpet",
+      "email": "jh@g.com",
       "password": "zzzzzz",
       "type": "user",
       "id": 3
     },
     {
-      "firstName": "Robert",
-      "lastName": "Pattison",
-      "email": "rp@g.com",
-      "password": "zzzzzz",
+      "firstName": "Pam",
+      "lastName": "Gizly",
+      "email": "pg@g.com",
+      "password": "zzzzzzz",
       "type": "user",
       "id": 4
     },
     {
-      "firstName": "Bernard",
-      "lastName": "Trump",
-      "email": "bt@g.com",
-      "password": "zzzzzz",
-      "type": "user",
-      "id": 5
-    },
-    {
-      "firstName": "Pumpkin",
-      "lastName": "Laborsch",
-      "email": "pl@g.com",
-      "password": "1111111",
+      "firstName": "Oskar",
+      "lastName": "Downly",
+      "email": "od@g.com",
+      "password": "zzzzzzz",
       "type": "user",
       "id": 6
     },
     {
-      "firstName": "Lacki",
-      "lastName": "Jameson",
-      "email": "lj@g.com",
-      "password": "111111",
+      "firstName": "David",
+      "lastName": "Uollis",
+      "email": "du@g.com",
+      "password": "11111111",
       "type": "user",
       "id": 7
+    },
+    {
+      "firstName": "Bill",
+      "lastName": "Jeamenson",
+      "email": "bj@g.com",
+      "password": "zzzzzz",
+      "type": "user",
+      "id": 8
     }
   ],
   "tasks": [
-    {
-      "title": "klk",
-      "description": "lklkjk",
-      "estimation": 60,
-      "tracked": 20,
-      "progress": 33.33333333333333,
-      "user": {
-        "firstName": "Marina",
-        "lastName": "Mala",
-        "email": "mala@gmail.com",
-        "password": "111111",
-        "type": "user",
-        "id": 2
-      },
-      "status": "in progress",
-      "author": {
-        "firstName": "Kos",
-        "lastName": "Malyi",
-        "email": "k@g.com",
-        "type": "admin",
-        "id": 2
-      },
-      "id": 2
-    },
-    {
-      "title": "dsf",
-      "description": "sdfsd",
-      "estimation": 120,
-      "tracked": 60,
-      "progress": 50,
-      "user": {
-        "firstName": "Robert",
-        "lastName": "Pattison",
-        "email": "rp@g.com",
-        "password": "zzzzzz",
-        "type": "user",
-        "id": 4
-      },
-      "status": "in progress",
-      "author": {
-        "firstName": "Kos",
-        "lastName": "Malyi",
-        "email": "k@g.com",
-        "type": "admin",
-        "id": 2
-      },
-      "id": 5
-    },
-    {
-      "title": "TItlte task",
-      "description": "sdfsd",
-      "estimation": 240,
-      "tracked": 60,
-      "progress": 25,
-      "user": {
-        "firstName": "Bernard",
-        "lastName": "Trump",
-        "email": "bt@g.com",
-        "password": "zzzzzz",
-        "type": "user",
-        "id": 5
-      },
-      "status": "in progress",
-      "author": {
-        "firstName": "Kos",
-        "lastName": "Malyi",
-        "email": "k@g.com",
-        "type": "admin",
-        "id": 2
-      },
-      "id": 6
-    },
-    {
-      "title": "TItlte task",
-      "description": "asdas",
-      "estimation": 180,
-      "tracked": 60,
-      "progress": 33.33333333333333,
-      "user": {
-        "firstName": "Pumpkin",
-        "lastName": "Laborsch",
-        "email": "pl@g.com",
-        "password": "1111111",
-        "type": "user",
-        "id": 6
-      },
-      "status": "in progress",
-      "author": {
-        "firstName": "Kos",
-        "lastName": "Malyi",
-        "email": "k@g.com",
-        "type": "admin",
-        "id": 2
-      },
-      "id": 7
-    },
     {
       "title": "SOme new",
       "description": "sadsd",
@@ -161,10 +58,179 @@
       "tracked": 30,
       "progress": 50,
       "user": {
-        "firstName": "Lacki",
-        "lastName": "Jameson",
-        "email": "lj@g.com",
+        "firstName": "David",
+        "lastName": "Uollis",
+        "email": "du@g.com",
+        "password": "11111111",
+        "type": "user",
+        "id": 7
+      },
+      "status": "in progress",
+      "id": 8,
+      "author": {
+        "firstName": "Kos",
+        "lastName": "Malyi",
+        "email": "k@g.com",
+        "type": "admin",
+        "id": 2
+      }
+    },
+    {
+      "title": "klk",
+      "description": "asdas",
+      "estimation": 1200,
+      "tracked": 1140,
+      "progress": 95,
+      "user": {
+        "firstName": "Oskar",
+        "lastName": "Downly",
+        "email": "od@g.com",
+        "password": "zzzzzzz",
+        "type": "user",
+        "id": 6
+      },
+      "status": "in progress",
+      "id": 9,
+      "author": {
+        "firstName": "Kos",
+        "lastName": "Malyi",
+        "email": "k@g.com",
+        "type": "admin",
+        "id": 2
+      }
+    },
+    {
+      "title": "JKhjkh",
+      "description": "jkhjkdshfjkhsd",
+      "estimation": 0,
+      "tracked": 0,
+      "progress": 0,
+      "user": {
+        "firstName": "David",
+        "lastName": "Uollis",
+        "email": "du@g.com",
+        "password": "11111111",
+        "type": "user",
+        "id": 7
+      },
+      "status": "todo",
+      "id": 10,
+      "author": {
+        "firstName": "Kos",
+        "lastName": "Malyi",
+        "email": "k@g.com",
+        "type": "admin",
+        "id": 2
+      }
+    },
+    {
+      "title": "sdfdsfds",
+      "description": "sdfdsfds",
+      "estimation": 0,
+      "tracked": 0,
+      "progress": 0,
+      "user": {
+        "firstName": "Jim",
+        "lastName": "Harpet",
+        "email": "jh@g.com",
+        "password": "zzzzzz",
+        "type": "user",
+        "id": 3
+      },
+      "status": "todo",
+      "id": 11,
+      "author": {
+        "firstName": "Kos",
+        "lastName": "Malyi",
+        "email": "k@g.com",
+        "type": "admin",
+        "id": 2
+      }
+    },
+    {
+      "title": "Task new",
+      "description": "jknsdkjansk",
+      "estimation": 240,
+      "tracked": 60,
+      "progress": 25,
+      "user": {
+        "firstName": "Kos",
+        "lastName": "Malyi",
+        "email": "k@g.com",
         "password": "111111",
+        "type": "admin",
+        "notifications": [],
+        "id": 1
+      },
+      "status": "in progress",
+      "author": {
+        "firstName": "Kos",
+        "lastName": "Malyi",
+        "email": "k@g.com",
+        "type": "admin",
+        "id": 2
+      },
+      "id": 12
+    },
+    {
+      "title": "new",
+      "description": "dfljsdljfsdj",
+      "estimation": 120,
+      "tracked": 60,
+      "progress": 50,
+      "user": {
+        "firstName": "Bill",
+        "lastName": "Jeamenson",
+        "email": "bj@g.com",
+        "password": "zzzzzz",
+        "type": "user",
+        "id": 8
+      },
+      "status": "in progress",
+      "id": 13,
+      "author": {
+        "firstName": "Kos",
+        "lastName": "Malyi",
+        "email": "k@g.com",
+        "type": "admin",
+        "id": 2
+      }
+    },
+    {
+      "title": "klk",
+      "description": "wqeq",
+      "estimation": 600,
+      "tracked": 600,
+      "progress": 100,
+      "user": {
+        "firstName": "David",
+        "lastName": "Uollis",
+        "email": "du@g.com",
+        "password": "11111111",
+        "type": "user",
+        "id": 7
+      },
+      "status": "finished",
+      "id": 14,
+      "author": {
+        "firstName": "Kos",
+        "lastName": "Malyi",
+        "email": "k@g.com",
+        "type": "admin",
+        "id": 2
+      }
+    },
+    {
+      "title": "NewTask",
+      "description": "dsfjdsfsdhjkh",
+      "estimation": 600,
+      "tracked": 500,
+      "progress": 83.33333333333334,
+      "user": {
+        "firstName": "David",
+        "lastName": "Uollis",
+        "email": "du@g.com",
+        "password": "11111111",
         "type": "user",
         "id": 7
       },
@@ -176,7 +242,7 @@
         "type": "admin",
         "id": 2
       },
-      "id": 8
+      "id": 15
     }
   ]
 }

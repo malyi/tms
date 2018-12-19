@@ -18,7 +18,7 @@ import {TasksService} from '../../shared/services/tasks.service';
 import {AddTaskComponent} from './tasks-admin/add-task/add-task.component';
 import { EditTaskComponent } from './tasks-admin/edit-task/edit-task.component';
 import {FilterPipe} from '../../shared/pipes/filter.pipe';
-import {JwPaginationComponent} from 'jw-angular-pagination';
+import {UsersListComponent} from './users-list/users-list.component';
 
 
 @NgModule({
@@ -27,10 +27,10 @@ import {JwPaginationComponent} from 'jw-angular-pagination';
     TasksAdminComponent,
     TasksUserComponent,
     UsersComponent,
+    UsersListComponent,
     AddTaskComponent,
     EditTaskComponent,
-    FilterPipe,
-    JwPaginationComponent
+    FilterPipe
   ],
   imports: [
     CommonModule,

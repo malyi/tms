@@ -8,9 +8,6 @@
                     <div class="text-center"><h3 class="white-text mx-3 text-center text-uppercase font-weight-bold">All
                         tasks</h3></div>
                     <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <app-add-task (onTaskAdd)="newTaskAdded($event)"></app-add-task>
-                        </div>
 
                         <div class="d-flex">
                             <div class="m-0">
@@ -29,9 +26,9 @@
                                         mdbWavesEffect>Search by
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" (click)="changeCriteria('title')">Title</a>
-                                    <a class="dropdown-item" (click)="changeCriteria('description')">Description</a>
-                                    <a class="dropdown-item" (click)="changeCriteria('author')">Manager</a>
+                                    <a class="dropdown-item" (click)="changeCriteria('firstName')">First Name</a>
+                                    <a class="dropdown-item" (click)="changeCriteria('lastName')">Last Name</a>
+                                    <a class="dropdown-item" (click)="changeCriteria('email')">Email</a>
                                     <a class="dropdown-item" (click)="changeCriteria('user')">User</a>
                                     <a class="dropdown-item" (click)="changeCriteria('status')">Status</a>
                                     <a class="dropdown-item" (click)="changeCriteria('progress')">Progress</a>
@@ -53,70 +50,37 @@
                             <thead>
                             <tr>
                                 <th class="th-lg">
-                                    <a (click)="sortBy('title')">Task title
+                                    <a (click)="sortBy('firstName')">First Name
                                         <mdb-icon icon="sort" class="ml-1"></mdb-icon>
                                     </a>
                                 </th>
                                 <th class="th-lg">
-                                    <a (click)="sortBy('description')">Task description
+                                    <a (click)="sortBy('lastName')">Last Name
                                         <mdb-icon icon="sort" class="ml-1"></mdb-icon>
                                     </a>
                                 </th>
                                 <th class="th-lg">
-                                    <a (click)="sortBy('author', 'firstName')">Created by
+                                    <a (click)="sortBy('email')">Email
                                         <mdb-icon icon="sort" class="ml-1"></mdb-icon>
                                     </a>
                                 </th>
-                                <th class="th-lg">
-                                    <a (click)="sortBy('user', 'firstName')">Assigned to
+                                <th class="th-lg text-center">
+                                    <a (click)="sortBy('tasks')">Assigned tasks
                                         <mdb-icon icon="sort" class="ml-1"></mdb-icon>
                                     </a>
                                 </th>
-                                <th class="th-lg">
-                                    <a (click)="sortBy('status')">Status
-                                        <mdb-icon icon="sort" class="ml-1"></mdb-icon>
-                                    </a>
-                                </th>
-                                <th class="th-lg"><a (click)="sortBy('progress')">Progress
-                                    <mdb-icon icon="sort" class="ml-1"></mdb-icon>
-                                </a>
-                                </th>
-                                <th class="th-lg">Manage
+                                <th class="th-lg text-center">Manage
                                 </th>
                             </tr>
                             </thead>
 
                             <tbody class="table-body-scroll">
-                            <tr *ngFor="let row of tasksList | listFilter:searchValue:searchField;let i = index">
-                                <td>{{row.title}}</td>
-                                <td>{{row.description}}</td>
-                                <td>{{row.author.firstName + ' ' + row.author.lastName }}</td>
-                                <td>{{row.user.firstName + ' ' + row.user.lastName}}</td>
-                                <td>
-                                    <mdb-badge info="true" class="p-2 status-badge">{{row.status}}</mdb-badge>
-                                </td>
-                                <td>
-                                    <span class="progress-value">{{row.progress | number:'1.0-0'}}%</span>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar"
-                                             [ngStyle]="{'width.%': row.progress}" aria-valuemin="0"
-                                             aria-valuemax="100"></div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="table-edit mr-2">
-                                        <button type="button"
-                                                mdbBtn color="info"
-                                                floating="true"
-                                                rounded="true"
-                                                outline="false"
-                                                size="sm"
-                                                data-toggle="modal"
-                                                data-target="#addTask"
-                                                (click)="editTaskOpen(row)" mdbWavesEffect>
-                                          <mdb-icon icon="pencil"></mdb-icon>
-                                        </button>
-                                    </span>
+                            <tr *ngFor="let row of userList | listFilter:searchValue:searchField;let i = index">
+                                <td>{{row.firstName}}</td>
+                                <td>{{row.lastName}}</td>
+                                <td>{{row.email}}</td>
+                                <td class="text-center">{{getTasksCount(row.email)}}</td>
+                                <td class="text-center">
                                     <span class="table-remove">
                                         <button type="button"
                                                 mdbBtn

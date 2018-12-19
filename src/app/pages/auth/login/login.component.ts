@@ -48,7 +48,9 @@ export class LoginComponent implements OnInit {
 
     this.route.queryParams.subscribe((params: Params) => {
       if (params['canLogin']) {
-        this.notification.success('Now you can login!');
+        setTimeout( (() => {
+          this.notification.success('Now you can login!');
+        }).bind(this));
       }
     });
   }

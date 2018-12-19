@@ -10,8 +10,6 @@ export class HeaderComponent {
 
   links = [
     {title: 'Home', handle: '/'},
-    {title: 'System', handle: 'system'},
-    {title: 'Account', handle: 'account'},
     {title: 'About', handle: 'about'},
     {title: 'Contact', handle: 'contact'}
   ];

@@ -1,6 +1,4 @@
-import {Task} from './task.model';
-
-export class User{
+export class User {
   constructor(
     public firstName: string,
     public lastName: string,
@@ -8,6 +6,5 @@ export class User{
     public password: string,
     public type: string = 'user',
     public id?: number,
-    public tasks?: Array <Task>
   ) {}
 }

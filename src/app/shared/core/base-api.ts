@@ -4,7 +4,7 @@ import {map} from 'rxjs/operators';
 import {Task} from '../models/task.model';
 
 export class BaseApi{
-  private baseUrl = "http://localhost:3000/";
+  private baseUrl = 'http://localhost:3000/';
 
   constructor (public http: HttpClient) {}
 

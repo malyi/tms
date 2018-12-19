@@ -30,7 +30,7 @@ export class AddTaskComponent implements OnInit {
     private taskService: TasksService,
     private notification: ToastrService) {
 
-    this.usersService.getUserAllUsers('short').subscribe((users: Array<User>) => {
+    this.usersService.getAllUsers('short').subscribe((users: Array<User>) => {
       return this.userList = users;
     });
 
@@ -53,14 +53,7 @@ export class AddTaskComponent implements OnInit {
       return;
     }
 
-    const {taskTitle, taskDescription, estimationHr, estimationMin, trackedHr, trackedMin, userId} = this.addTaskForm.value;
-    const userIndex = this.userList.findIndex((user: User) => user.id === userId);
-    const estimation = estimationHr * 60 + estimationMin;
-    const tracked = trackedHr * 60 + trackedMin;
-    const progress = (tracked / estimation) * 100;
-    const status = ((progress <= 0) ? 'todo' : (progress >= 100) ? 'finished' : 'in progress' );
-    const task = new Task(taskTitle, taskDescription, estimation, tracked, progress, this.userList[userIndex], status);
-
+    const task = this.taskService.generateTask(this.addTaskForm.value, this.userList);
     this.taskService.createNewTask(task)
       .subscribe((respTask: Task) => {
         this.onTaskAdd.emit(respTask);

@@ -10,6 +10,15 @@
         <li *ngFor="let link of links" class="nav-item waves-light">
           <a routerLink="{{ link.handle }}" class="nav-link waves-light white-text" mdbWavesEffect>{{link.title}}</a>
         </li>
+        <li class="nav-item waves-light dropdown" mdbDropdown>
+          <a class="nav-link dropdown-toggle waves-effect waves-light" mdbDropdownToggle>
+            System
+          </a>
+          <div class="dropdown-menu dropdown-primary">
+            <a class="dropdown-item waves-effect waves-light" routerLink="system/tasks">Task List</a>
+            <a class="dropdown-item waves-effect waves-light" routerLink="system/users">User List</a>
+          </div>
+        </li>
       </ul>
       <ul class="navbar-nav ml-auto nav-flex-icons">
         <li class="nav-item dropdown" mdbDropdown>
@@ -17,7 +26,7 @@
             <i class="fa fa-user"></i>
           </a>
           <div class="dropdown-menu dropdown-primary">
-            <a class="dropdown-item waves-effect waves-light" href="javascript:;;">Action</a>
+            <a class="dropdown-item waves-effect waves-light" routerLink="account">Account</a>
             <a class="dropdown-item waves-effect waves-light" href="javascript:;;">Another action</a>
             <a class="dropdown-item waves-effect waves-light" href="javascript:;;">Something else here</a>
           </div>

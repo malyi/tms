@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {User} from '../models/user.model';
 import {map} from 'rxjs/operators';
 import {BaseApi} from '../core/base-api';
+import {Task} from '../models/task.model';
 
 @Injectable()
 export class UsersService extends BaseApi {
@@ -11,7 +12,7 @@ export class UsersService extends BaseApi {
     super(http);
   }
 
-  getUserAllUsers(type: string): Observable<User[]> {
+  getAllUsers(type: string): Observable<User[]> {
     return this.get(`users`).pipe(
       map((response: Array<User>) => {
         if (type === 'full') {
@@ -29,6 +30,14 @@ export class UsersService extends BaseApi {
 
   createNewUser(user: User): Observable<User> {
     return this.post('users', user);
+  }
+
+  updateUserNotification(user: User, notifications): Observable<User> {
+    return this.put(`users/${user.id}`, notifications);
+  }
+
+  deleteUser(user: User): Observable<User> {
+    return this.delete(`users/${user.id}`);
   }
 
 }
