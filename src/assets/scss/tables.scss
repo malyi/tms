@@ -1,0 +1,16 @@
+.table-w-auto{
+  td, th{
+    min-width: 0px;
+    width: auto;
+  }
+}
+.table-body-scroll{
+  max-height: 355px;
+  overflow-y: scroll;
+}
+td{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 150px;
+}

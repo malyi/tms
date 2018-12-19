@@ -17,7 +17,8 @@ export class AddTaskComponent implements OnInit {
   validationMessages = {
     titleError: 'Title can\'t be blank',
     descriptionError: 'Description can\'t be blank',
-    userError: 'Please choose User'
+    userError: 'Please choose User',
+    timeError: 'This field can\'t be blank'
   };
 
   @ViewChild('frame') public contentModal;

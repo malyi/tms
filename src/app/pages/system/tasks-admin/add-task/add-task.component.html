@@ -1,5 +1,5 @@
 <div class="btn-group">
-<button type="button" mdbBtn size="sm" class="default-color-dark waves-light" rounded="true" data-toggle="modal" data-target="#addTask"
+<button type="button" mdbBtn class="default-color-dark waves-light" rounded="true" data-toggle="modal" data-target="#addTask"
         (click)="frame.show()" mdbWavesEffect>Add task
 </button>
 </div>
@@ -16,7 +16,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form [formGroup]="addTaskForm" class="p-5" (submit)="onSubmit()">
+                <form [formGroup]="addTaskForm" class="p-5 modal-form" (submit)="onSubmit()">
                     <div class="input-group md-form mb-5">
                         <input type="text"
                                id="task-title"
@@ -50,7 +50,7 @@
                                    pattern="\d+"
                                    min="0"
                                    class="form-control validate col-6 mr-1  p-0 text-center"
-                                   [errorMessage]="validationMessages.titleError"
+                                   [errorMessage]="validationMessages.timeError"
                                    [validateSuccess]="false"
                                    mdbInputDirective>
                             <input type="number"
@@ -63,7 +63,7 @@
                                    min="0"
                                    max="59"
                                    class="form-control validate col-6 p-0 text-center"
-                                   [errorMessage]="validationMessages.titleError"
+                                   [errorMessage]="validationMessages.timeError"
                                    [validateSuccess]="false"
                                    mdbInputDirective>
                             <label for="task-estimate" class="mx-3">Estimation (hr/min)</label>
@@ -78,7 +78,7 @@
                                    pattern="\d+"
                                    min="0"
                                    class="form-control validate col-6 mr-1"
-                                   [errorMessage]="validationMessages.titleError"
+                                   [errorMessage]="validationMessages.timeError"
                                    [validateSuccess]="false"
                                    mdbInputDirective>
                             <input type="number"
@@ -91,7 +91,7 @@
                                    min="0"
                                    max="59"
                                    class="form-control validate col-6"
-                                   [errorMessage]="validationMessages.titleError"
+                                   [errorMessage]="validationMessages.timeError"
                                    [validateSuccess]="false"
                                    mdbInputDirective>
                             <label for="task-tracked" class="mx-3">Tracked (hr/min)</label>

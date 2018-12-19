@@ -11,12 +11,14 @@ import {SharedModule} from '../../shared/shared.module';
 import {
   BadgeModule, DropdownModule,
   ModalModule,
-  PopoverModule,
+  PopoverModule, TableModule,
   TooltipModule
 } from 'angular-bootstrap-md';
 import {TasksService} from '../../shared/services/tasks.service';
 import {AddTaskComponent} from './tasks-admin/add-task/add-task.component';
 import { EditTaskComponent } from './tasks-admin/edit-task/edit-task.component';
+import {FilterPipe} from '../../shared/pipes/filter.pipe';
+import {JwPaginationComponent} from 'jw-angular-pagination';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { EditTaskComponent } from './tasks-admin/edit-task/edit-task.component';
     TasksUserComponent,
     UsersComponent,
     AddTaskComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    FilterPipe,
+    JwPaginationComponent
   ],
   imports: [
     CommonModule,
@@ -36,6 +40,7 @@ import { EditTaskComponent } from './tasks-admin/edit-task/edit-task.component';
     PopoverModule,
     BadgeModule,
     DropdownModule,
+    TableModule,
     ModalModule.forRoot(),
   ],
   providers: [TasksService]
