@@ -10,8 +10,7 @@ export class AppComponent {
   currentRouteIndex = false;
 
   constructor(
-    private  router: Router
-  ) {
+    private  router: Router) {
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {
         if (val.urlAfterRedirects === '/') {
@@ -21,5 +20,6 @@ export class AppComponent {
         }
       }
     });
+
   }
 }

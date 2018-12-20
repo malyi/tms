@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import {SystemRoutingModule} from './system-routing.module';
 
 import {TasksAdminComponent} from './tasks-admin/tasks-admin.component';
-import {UsersComponent} from './users/users.component';
 import {TasksUserComponent} from './tasks-user/tasks-user.component';
 import {SystemComponent} from './system.component';
 import {SharedModule} from '../../shared/shared.module';
@@ -26,7 +25,6 @@ import {UsersListComponent} from './users-list/users-list.component';
     SystemComponent,
     TasksAdminComponent,
     TasksUserComponent,
-    UsersComponent,
     UsersListComponent,
     AddTaskComponent,
     EditTaskComponent,
@@ -42,8 +40,7 @@ import {UsersListComponent} from './users-list/users-list.component';
     DropdownModule,
     TableModule,
     ModalModule.forRoot(),
-  ],
-  providers: [TasksService]
+  ]
 })
 
 export class SystemModule {

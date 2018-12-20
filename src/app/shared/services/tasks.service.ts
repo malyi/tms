@@ -14,10 +14,6 @@ export class TasksService extends BaseApi {
     super(http);
   }
 
-  getTasksByUserId(userId: number): Observable<Task> {
-    return this.get(`tasks?user.id_like=${userId}`);
-  }
-
   generateTask(formValue, userList, taskId?) {
     const {taskTitle, taskDescription, estimationHr, estimationMin, trackedHr, trackedMin, userId} = formValue;
     const userIndex = userList.findIndex((user: User) => user.id === userId);
@@ -30,6 +26,10 @@ export class TasksService extends BaseApi {
   // @ts-ignore
   getAllTasks(): Observable<Array> {
     return this.get('tasks');
+  }
+
+  getTasksByUserId(userId: number): Observable<Task> {
+    return this.get(`tasks?user.id_like=${userId}`);
   }
 
   createNewTask(task: Task): Observable<Task> {

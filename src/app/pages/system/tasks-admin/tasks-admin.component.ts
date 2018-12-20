@@ -1,10 +1,13 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import {Router} from '@angular/router';
 
 import {ToastrService} from 'ngx-toastr';
 
 import {TasksService} from '../../../shared/services/tasks.service';
+import {LocalStorageService} from '../../../shared/services/local-storage.service';
 import {Task} from '../../../shared/models/task.model';
 import {EditTaskComponent} from './edit-task/edit-task.component';
+import {TableService} from '../../../shared/services/table.service';
 
 @Component({
   selector: 'app-tasks-admin',
@@ -18,43 +21,30 @@ export class TasksAdminComponent implements OnInit {
   searchValue = '';
   searchPlaceholder = 'Title';
   searchField = 'title';
-
+  userRole: string;
 
   @ViewChild('editTask') editTask: EditTaskComponent;
 
   constructor(
+    private localStorageService: LocalStorageService,
+    private router: Router,
     private tasksService: TasksService,
-    private notification: ToastrService) { }
+    private notification: ToastrService,
+    private tableService: TableService) { }
 
   ngOnInit() {
+    this.userRole = this.localStorageService.get('user')['type'];
+    if (this.userRole !== 'admin') {
+      this.router.navigate(['/system/tasks-user']);
+    }
     this.tasksService.getAllTasks().subscribe((tasks: Array<Task>) => {
       this.tasksList = tasks;
     });
   }
 
+
   sortBy(by: string | any, key: string): void {
-    this.tasksList.sort((a: any, b: any) => {
-      let sortA;
-      let sortB;
-
-      if (typeof a[by] === 'object') {
-        sortA = a[by][key];
-        sortB = b[by][key];
-      } else {
-        sortA = a[by];
-        sortB = b[by];
-      }
-      if (sortA < sortB) {
-        return this.sorted ? 1 : -1;
-      }
-      if (sortA > sortB) {
-        return this.sorted ? -1 : 1;
-      }
-
-      return 0;
-    });
-
-    this.sorted = !this.sorted;
+    this.sorted = this.tableService.sort(this.sorted, this.tasksList, by, key);
   }
 
   newTaskAdded(task: Task) {

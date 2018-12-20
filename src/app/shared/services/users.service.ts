@@ -4,11 +4,12 @@ import {Observable} from 'rxjs';
 import {User} from '../models/user.model';
 import {map} from 'rxjs/operators';
 import {BaseApi} from '../core/base-api';
-import {Task} from '../models/task.model';
+import {LocalStorageService} from './local-storage.service';
 
 @Injectable()
 export class UsersService extends BaseApi {
-  constructor(public http: HttpClient) {
+  constructor(
+      public http: HttpClient) {
     super(http);
   }
 
@@ -30,10 +31,6 @@ export class UsersService extends BaseApi {
 
   createNewUser(user: User): Observable<User> {
     return this.post('users', user);
-  }
-
-  updateUserNotification(user: User, notifications): Observable<User> {
-    return this.put(`users/${user.id}`, notifications);
   }
 
   deleteUser(user: User): Observable<User> {

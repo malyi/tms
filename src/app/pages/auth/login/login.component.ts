@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 
@@ -7,6 +7,7 @@ import {User} from '../../../shared/models/user.model';
 import {Message} from '../../../shared/models/message.model';
 import {AuthService} from '../../../shared/services/auth.service';
 import {ToastrService} from 'ngx-toastr';
+import {UserStatusService} from '../../../shared/services/user-status.service';
 
 @Component({
   selector: 'app-login',
@@ -36,11 +37,14 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-    private notification: ToastrService) {
+    private notification: ToastrService,
+    private userStatus: UserStatusService) {
     this.loginForm = fb.group({
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
     });
+
+
   }
 
   ngOnInit() {
@@ -50,6 +54,10 @@ export class LoginComponent implements OnInit {
       if (params['canLogin']) {
         setTimeout( (() => {
           this.notification.success('Now you can login!');
+        }).bind(this));
+      } else if (params['accessDenied']) {
+        setTimeout( (() => {
+          this.notification.warning('For using this system please login!');
         }).bind(this));
       }
     });
@@ -62,6 +70,8 @@ export class LoginComponent implements OnInit {
     }, 5000);
   }
 
+
+
   onSubmit() {
     if (this.loginForm.invalid) {
       return;
@@ -72,8 +82,10 @@ export class LoginComponent implements OnInit {
     this.usersService.getUserByEmail(email).subscribe((user: User) => {
       if (user && user.password === this.loginForm.value.password) {
         this.authService.login(user);
-        // this.router.navigate([]);
+        this.userStatus.setStatus(true);
+        this.router.navigate(['/']);
       } else {
+        this.userStatus.setStatus(false);
         this.showMessage({
           type: 'danger',
           text: 'Email or password is not correct!'

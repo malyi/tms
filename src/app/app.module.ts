@@ -18,7 +18,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { GmapComponent } from './components/gmap/gmap.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import {NotificationsModule} from './components/notifications/notifications.module';
-import {FilterPipe} from './shared/pipes/filter.pipe';
+import {AuthGuard} from './shared/services/auth.guard';
+import {UserStatusService} from './shared/services/user-status.service';
 
 
 
@@ -47,6 +48,7 @@ import {FilterPipe} from './shared/pipes/filter.pipe';
     }),
     NotificationsModule
   ],
+  providers: [AuthGuard, UserStatusService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

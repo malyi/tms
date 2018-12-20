@@ -1,0 +1,22 @@
+<div class="container page-container login">
+    <div class="row">
+        <div class="col-5 mx-auto">
+            <div class="card">
+                <div class="card-header default-color white-text text-center py-4">
+                    <p class="h4 mb-0">Your Account Details</p>
+                </div>
+                <div class="card-body p-0">
+                    <div class="text-center border border-light p-5">
+                        <p class="h2">{{user.firstName + ' ' + user.lastName}}</p>
+                        <p>
+                            <span class="small col-6">Your Email: </span><span class="col-6">{{user.email}}</span>
+                        </p>
+                        <p>
+                            <span class="small col-6">Your tasks: </span><span class="col-6">{{tasksQty}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

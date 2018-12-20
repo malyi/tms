@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {ToastrService} from 'ngx-toastr';
 
@@ -6,6 +6,9 @@ import {UsersService} from '../../../shared/services/users.service';
 import {User} from '../../../shared/models/user.model';
 import {TasksService} from '../../../shared/services/tasks.service';
 import {Task} from '../../../shared/models/task.model';
+import {LocalStorageService} from '../../../shared/services/local-storage.service';
+import {Router} from '@angular/router';
+import {TableService} from '../../../shared/services/table.service';
 
 @Component({
   selector: 'app-users-list',
@@ -22,15 +25,23 @@ export class UsersListComponent implements OnInit {
   searchValue = '';
   searchPlaceholder = 'First Name';
   searchField = 'firstName';
+  userRole: string;
 
 
 
   constructor(
+    private localStorageService: LocalStorageService,
+    private router: Router,
     private usersService: UsersService,
     private tasksService: TasksService,
+    private tableService: TableService,
     private notification: ToastrService) { }
 
   ngOnInit() {
+    this.userRole = this.localStorageService.get('user')['type'];
+    if (this.userRole !== 'admin') {
+      this.router.navigate(['/system/tasks-user']);
+    }
     this.usersService.getAllUsers('users').subscribe((users: Array<User>) => {
       this.userList = users;
     });
@@ -43,29 +54,9 @@ export class UsersListComponent implements OnInit {
   }
 
   sortBy(by: string | any, key: string): void {
-    this.userList.sort((a: any, b: any) => {
-      let sortA;
-      let sortB;
-
-      if (typeof a[by] === 'object') {
-        sortA = a[by][key];
-        sortB = b[by][key];
-      } else {
-        sortA = a[by];
-        sortB = b[by];
-      }
-      if (sortA < sortB) {
-        return this.sorted ? 1 : -1;
-      }
-      if (sortA > sortB) {
-        return this.sorted ? -1 : 1;
-      }
-
-      return 0;
-    });
-
-    this.sorted = !this.sorted;
+    this.sorted = this.tableService.sort(this.sorted, this.userList, by, key);
   }
+
   getTasksCount(email) {
     if (!!this.taskList) {
       this.userTaskList = this.taskList.filter((task: Task) => {

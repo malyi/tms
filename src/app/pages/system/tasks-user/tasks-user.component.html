@@ -1,3 +1,123 @@
-<p>
-  tasks-user works!
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-cascade narrower">
+
+                <mdb-card-header
+                        class="default-color p-3">
+                    <div class="text-center"><h3 class="white-text mx-3 text-center text-uppercase font-weight-bold">All
+                        tasks</h3></div>
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <div class="d-flex">
+                            <div class="m-0">
+                                <input type="text"
+                                       class="form-control border-0 filter-form"
+                                       id="filter"
+                                       [placeholder]="searchPlaceholder"
+                                       [(ngModel)]="searchValue">
+                            </div>
+                            <div class="btn-group ml-1" mdbDropdown>
+                                <button type="button"
+                                        class="dropdown-toggle default-color-dark waves-light px-1"
+                                        rounded="true"
+                                        mdbBtn
+                                        mdbDropdownToggle
+                                        mdbWavesEffect>Search by
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" (click)="changeCriteria('title')">Title</a>
+                                    <a class="dropdown-item" (click)="changeCriteria('description')">Description</a>
+                                    <a class="dropdown-item" (click)="changeCriteria('author')">Manager</a>
+                                    <a class="dropdown-item" (click)="changeCriteria('user')">User</a>
+                                    <a class="dropdown-item" (click)="changeCriteria('status')">Status</a>
+                                    <a class="dropdown-item" (click)="changeCriteria('progress')">Progress</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </mdb-card-header>
+
+                <div>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-w-auto m-0" mdbTable>
+                            <thead>
+                            <tr>
+                                <th class="th-lg">
+                                    <a (click)="sortBy('title')">Task title
+                                        <mdb-icon icon="sort" class="ml-1"></mdb-icon>
+                                    </a>
+                                </th>
+                                <th class="th-lg">
+                                    <a (click)="sortBy('description')">Task description
+                                        <mdb-icon icon="sort" class="ml-1"></mdb-icon>
+                                    </a>
+                                </th>
+                                <th class="th-lg">
+                                    <a (click)="sortBy('author', 'firstName')">Created by
+                                        <mdb-icon icon="sort" class="ml-1"></mdb-icon>
+                                    </a>
+                                </th>
+                                <th class="th-lg">
+                                    <a (click)="sortBy('user', 'firstName')">Assigned to
+                                        <mdb-icon icon="sort" class="ml-1"></mdb-icon>
+                                    </a>
+                                </th>
+                                <th class="th-lg">
+                                    <a (click)="sortBy('status')">Status
+                                        <mdb-icon icon="sort" class="ml-1"></mdb-icon>
+                                    </a>
+                                </th>
+                                <th class="th-lg"><a (click)="sortBy('progress')">Progress
+                                    <mdb-icon icon="sort" class="ml-1"></mdb-icon>
+                                </a>
+                                </th>
+                                <th class="th-lg text-center">Manage
+                                </th>
+                            </tr>
+                            </thead>
+
+                            <tbody class="table-body-scroll">
+                            <tr *ngFor="let row of tasksList | listFilter:searchValue:searchField;let i = index">
+                                <td>{{row.title}}</td>
+                                <td>{{row.description}}</td>
+                                <td>{{row.author.firstName + ' ' + row.author.lastName }}</td>
+                                <td>{{row.user.firstName + ' ' + row.user.lastName}}</td>
+                                <td>
+                                    <mdb-badge info="true" class="p-2 status-badge">{{row.status}}</mdb-badge>
+                                </td>
+                                <td>
+                                    <span class="progress-value">{{row.progress | number:'1.0-0'}}%</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar"
+                                             [ngStyle]="{'width.%': row.progress}" aria-valuemin="0"
+                                             aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                  <span class="table-edit mr-2 text-center">
+                                      <button type="button"
+                                              mdbBtn color="info"
+                                              floating="true"
+                                              rounded="true"
+                                              outline="false"
+                                              size="sm"
+                                              data-toggle="modal"
+                                              data-target="#addTask"
+                                              (click)="editTaskOpen(row)" mdbWavesEffect>
+                                        <mdb-icon icon="pencil"></mdb-icon>
+                                      </button>
+                                  </span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-edit-task #editTask (onTaskEdit)="editedTask($event)"></app-edit-task>
