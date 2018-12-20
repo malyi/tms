@@ -1,9 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {EditTaskComponent} from '../tasks-admin/edit-task/edit-task.component';
+
 import {TasksService} from '../../../shared/services/tasks.service';
 import {ToastrService} from 'ngx-toastr';
 import {Task} from '../../../shared/models/task.model';
 import {TableService} from '../../../shared/services/table.service';
+import {LocalStorageService} from '../../../shared/services/local-storage.service';
+import {ViewTaskComponent} from './view-task/view-task.component';
 
 @Component({
   selector: 'app-tasks-user',
@@ -17,17 +19,19 @@ export class TasksUserComponent implements OnInit {
   searchValue = '';
   searchPlaceholder = 'Title';
   searchField = 'title';
+  user: object;
 
 
-  @ViewChild('editTask') editTask: EditTaskComponent;
+  @ViewChild('viewTask') viewTask: ViewTaskComponent;
 
   constructor(
       private tasksService: TasksService,
       private tableService: TableService,
-      private notification: ToastrService) { }
+      private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
-    this.tasksService.getAllTasks().subscribe((tasks: Array<Task>) => {
+    this.user = this.localStorageService.get('user');
+    this.tasksService.getTasksByUserId(this.user['id']).subscribe((tasks: any) => {
       this.tasksList = tasks;
     });
   }
@@ -36,14 +40,14 @@ export class TasksUserComponent implements OnInit {
     this.sorted = this.tableService.sort(this.sorted, this.tasksList, by, key);
   }
 
-  editedTask(task: Task) {
+  viewedTask(task: Task) {
     const taskIndex = this.tasksList.findIndex((item: Task) => item.id === task.id);
     this.tasksList[taskIndex] = task;
 
   }
 
-  editTaskOpen(task: Task) {
-    this.editTask.open(task);
+  viewTaskOpen(task: Task) {
+    this.viewTask.open(task);
   }
 
 
@@ -52,7 +56,6 @@ export class TasksUserComponent implements OnInit {
       title: 'Title',
       description: 'Description',
       author: 'Created by',
-      user: 'Assigned to',
       status: 'Status',
       progress: 'Progress'
     };

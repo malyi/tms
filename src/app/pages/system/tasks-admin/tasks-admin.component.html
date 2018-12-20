@@ -93,7 +93,14 @@
                                 <td>{{row.author.firstName + ' ' + row.author.lastName }}</td>
                                 <td>{{row.user.firstName + ' ' + row.user.lastName}}</td>
                                 <td>
-                                    <mdb-badge info="true" class="p-2 status-badge">{{row.status}}</mdb-badge>
+                                    <mdb-badge
+                                            class="p-2 status-badge"
+                                            [ngClass]="{
+                                            'warning-color': row.status === 'todo',
+                                            'info-color': row.status === 'in progress',
+                                            'success-color': row.status === 'finished'}">
+                                            {{row.status}}
+                                    </mdb-badge>
                                 </td>
                                 <td>
                                     <span class="progress-value">{{row.progress | number:'1.0-0'}}%</span>
@@ -106,7 +113,8 @@
                                 <td>
                                     <span class="table-edit mr-2">
                                         <button type="button"
-                                                mdbBtn color="info"
+                                                mdbBtn
+                                                color="info"
                                                 floating="true"
                                                 rounded="true"
                                                 outline="false"

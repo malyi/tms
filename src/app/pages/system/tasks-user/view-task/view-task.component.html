@@ -1,0 +1,110 @@
+
+<div mdbModal #editTask="mdbModal" class="modal fade top" id="editTaskModal" tabindex="-1" role="dialog"
+     aria-labelledby="addTaskModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header default-color-dark white-text text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Edit Task</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="editTask.hide()">
+          <span class="white-text" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="editTaskForm" class="p-5" (submit)="onSubmit()">
+          <div class="input-group md-form mb-5">
+            <input type="text"
+                   id="task-title"
+                   formControlName="taskTitle"
+                   class="form-control validate"
+                   [validateSuccess]="false"
+                   [errorMessage]="validationMessages.titleError"
+                   mdbInputDirective disabled>
+            <label for="task-title">Task Title</label>
+          </div>
+
+          <div class="md-form mb-5">
+            <textarea
+                    id="task-description"
+                    formControlName="taskDescription"
+                    class="form-control validate md-textarea md-textarea-auto"
+                    [validateSuccess]="false"
+                    [errorMessage]="validationMessages.descriptionError"
+                    mdbInputDirective disabled>
+            </textarea>
+            <label for="task-description">Task Description</label>
+          </div>
+          <div class="row d-flex justify-content-between">
+            <div class="input-group md-form col-12 col-sm-5">
+              <input type="number"
+                     id="edit-task-estimate"
+                     formControlName="estimationHr"
+                     placeholder="hr"
+                     value="0"
+                     step="1"
+                     pattern="\d+"
+                     min="0"
+                     class="form-control validate col-6 mr-1  p-0 text-center"
+                     [errorMessage]="validationMessages.titleError"
+                     [validateSuccess]="false"
+                     mdbInputDirective disabled>
+              <input type="number"
+                     id="edit-task-estimate-min"
+                     formControlName="estimationMin"
+                     placeholder="min"
+                     value="0"
+                     step="1"
+                     pattern="\d+"
+                     min="0"
+                     max="59"
+                     class="form-control validate col-6 p-0 text-center"
+                     [errorMessage]="validationMessages.titleError"
+                     [validateSuccess]="false"
+                     mdbInputDirective disabled>
+              <label for="edit-task-estimate" class="mx-3">Estimation (hr/min)</label>
+            </div>
+            <div class="input-group md-form col-12 col-sm-5">
+              <input type="number"
+                     id="edit-task-tracked"
+                     formControlName="trackedHr"
+                     placeholder="hr"
+                     value="0"
+                     step="1"
+                     pattern="\d+"
+                     min="0"
+                     class="form-control validate col-6 mr-1"
+                     [errorMessage]="validationMessages.titleError"
+                     [validateSuccess]="false"
+                     mdbInputDirective>
+              <input type="number"
+                     id="edit-task-tracked-min"
+                     formControlName="trackedMin"
+                     placeholder="min"
+                     value="0"
+                     step="1"
+                     pattern="\d+"
+                     min="0"
+                     max="59"
+                     class="form-control validate col-6"
+                     [errorMessage]="validationMessages.titleError"
+                     [validateSuccess]="false"
+                     mdbInputDirective>
+              <label for="edit-task-tracked" class="mx-3">Tracked (hr/min)</label>
+            </div>
+          </div>
+          <div class="form-group mb-5" [ngClass]="{'form-error': editTaskForm.get('userId').invalid && editTaskForm.get('userId').touched}">
+            <ng-select [searchable]="false" formControlName="userId" placeholder="Select User" disabled>
+              <ng-option *ngFor="let user of userList" [value]="user.id">{{user.firstName + ' ' + user.lastName}}</ng-option>
+            </ng-select>
+            <span class="field-error" *ngIf="editTaskForm.get('userId').invalid && editTaskForm.get('userId').touched">Please choose User</span>
+          </div>
+
+          <div class="d-flex justify-content-center">
+            <button mdbBtn color="info" class="waves-light" mdbWavesEffect [disabled]="editTaskForm.invalid">Save</button>
+            <div mdbBtn color="danger" class="waves-light" mdbWavesEffect (click)="editTask.hide()">Cancel</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {UsersService} from '../../../shared/services/users.service';
 import {LocalStorageService} from '../../../shared/services/local-storage.service';
 import {TasksService} from '../../../shared/services/tasks.service';
 
@@ -14,7 +13,6 @@ export class ProfileComponent implements OnInit {
   tasksQty: number;
 
   constructor(
-      private userService: UsersService,
       private localStorageService: LocalStorageService,
       private tasksService: TasksService) {
   }

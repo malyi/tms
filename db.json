@@ -110,7 +110,7 @@
     {
       "title": "JKhjkh",
       "description": "jkhjkdshfjkhsd",
-      "estimation": 0,
+      "estimation": 60,
       "tracked": 0,
       "progress": 0,
       "user": {
@@ -229,7 +229,7 @@
     },
     {
       "title": "NewTask",
-      "description": "dsfjdsfsdhjkh",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis ultricies lacus sed turpis tincidunt id. Facilisis volutpat est velit egestas dui id. Arcu ac tortor dignissim convallis aenean et. Ut porttitor leo a diam. Mauris in aliquam sem fringilla ut morbi. Et ligula ullamcorper malesuada proin libero nunc consequat interdum varius. Sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae. Quis vel eros donec ac. Urna cursus eget nunc scelerisque. Nisl suscipit adipiscing bibendum est ultricies integer. Sagittis id consectetur purus ut. Consequat semper viverra nam libero justo laoreet sit amet cursus. Quis auctor elit sed vulputate mi sit amet mauris commodo. Cras adipiscing enim eu turpis egestas pretium aenean. Erat pellentesque adipiscing commodo elit at. Tincidunt dui ut ornare lectus sit amet. Vitae et leo duis ut diam quam nulla.\n\nAccumsan tortor posuere ac ut consequat semper viverra. Dignissim sodales ut eu sem integer. Vel facilisis volutpat est velit egestas dui id ornare arcu. Pharetra massa massa ultricies mi. Justo eget magna fermentum iaculis. Tellus orci ac auctor augue mauris augue neque. Eget nunc scelerisque viverra mauris in aliquam. Posuere sollicitudin aliquam ultrices sagittis orci. Ut pharetra sit amet aliquam id diam. Tortor aliquam nulla facilisi cras fermentum odio eu. Feugiat nibh sed pulvinar proin gravida. Suspendisse interdum consectetur libero id. Urna condimentum mattis pellentesque id nibh tortor. Feugiat sed lectus vestibulum mattis ullamcorper velit. Amet volutpat consequat mauris nunc congue nisi.\n\nRisus pretium quam vulputate dignissim suspendisse in. Tempus quam pellentesque nec nam aliquam sem et. Cras tincidunt lobortis feugiat vivamus at augue eget. Cras ornare arcu dui vivamus arcu felis bibendum. Tincidunt lobortis feugiat vivamus at augue eget. Nisi lacus sed viverra tellus. Est lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque. Id leo in vitae turpis. A lacus vestibulum sed arcu non. Enim praesent elementum facilisis leo vel fringilla est ullamcorper eget. Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Euismod lacinia at quis risus sed. Ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt. Arcu felis bibendum ut tristique et egestas quis ipsum. Ultrices eros in cursus turpis massa. Nec dui nunc mattis enim ut. Euismod nisi porta lorem mollis aliquam.\n\nEt ligula ullamcorper malesuada proin libero nunc. Dictum non consectetur a erat nam at. Enim nulla aliquet porttitor lacus. Lobortis feugiat vivamus at augue eget. Id faucibus nisl tincidunt eget nullam non nisi est sit. Erat nam at lectus urna duis convallis convallis tellus id. Potenti nullam ac tortor vitae purus. Purus semper eget duis at tellus. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Quam lacus suspendisse faucibus interdum posuere lorem. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Pellentesque nec nam aliquam sem. Aliquam malesuada bibendum arcu vitae elementum.\n\nVulputate odio ut enim blandit volutpat. Aliquam eleifend mi in nulla posuere sollicitudin aliquam. Condimentum vitae sapien pellentesque habitant morbi. Laoreet suspendisse interdum consectetur libero id faucibus nisl. Tincidunt ornare massa eget egestas. Varius sit amet mattis vulputate enim nulla aliquet porttitor. Proin libero nunc consequat interdum varius sit amet. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor. Vitae nunc sed velit dignissim sodales ut eu sem integer. Mi eget mauris pharetra et ultrices. Enim eu turpis egestas pretium aenean pharetra.\n\nUllamcorper malesuada proin libero nunc consequat interdum varius. Sem nulla pharetra diam sit. At lectus urna duis convallis convallis tellus id. Eu consequat ac felis donec et odio pellentesque. Sit amet est placerat in. Blandit cursus risus at ultrices mi. Proin fermentum leo vel orci. Pellentesque sit amet porttitor eget dolor morbi non arcu. Vulputate odio ut enim blandit volutpat maecenas volutpat. Morbi tincidunt augue interdum velit. Ut aliquam purus sit amet luctus. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum. Auctor neque vitae tempus quam. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam.\n\nTincidunt nunc pulvinar sapien et. Porta nibh venenatis cras sed felis eget velit aliquet sagittis. Risus sed vulputate odio ut. Id neque aliquam vestibulum morbi blandit cursus. Rutrum tellus pellentesque eu tincidunt tortor. Ultrices eros in cursus turpis massa. Magna eget est lorem ipsum. Tempor commodo ullamcorper a lacus vestibulum. Imperdiet sed euismod nisi porta lorem mollis aliquam. Faucibus purus in massa tempor nec feugiat. Scelerisque felis imperdiet proin fermentum leo vel orci porta. Massa ultricies mi quis hendrerit dolor magna. Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Ut venenatis tellus in metus vulputate eu scelerisque felis. Dolor sit amet consectetur adipiscing elit. Ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper. Quam viverra orci sagittis eu volutpat odio. Odio euismod lacinia at quis risus sed vulputate odio ut. Dui ut ornare lectus sit amet.",
       "estimation": 600,
       "tracked": 500,
       "progress": 83.33333333333334,
@@ -242,14 +242,14 @@
         "id": 7
       },
       "status": "in progress",
+      "id": 15,
       "author": {
         "firstName": "Kos",
         "lastName": "Malyi",
         "email": "k@g.com",
         "type": "admin",
         "id": 2
-      },
-      "id": 15
+      }
     },
     {
       "title": "TItlte task",

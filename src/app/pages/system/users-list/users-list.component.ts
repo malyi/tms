@@ -98,9 +98,7 @@ export class UsersListComponent implements OnInit {
       firstName: 'First Name',
       lastName: 'Last Name',
       email: 'Email',
-      user: 'Assigned to',
-      status: 'Status',
-      progress: 'Progress'
+      tasks: 'Tasks'
     };
 
     this.searchPlaceholder = namesMap[field];

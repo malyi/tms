@@ -18,6 +18,7 @@ import {AddTaskComponent} from './tasks-admin/add-task/add-task.component';
 import { EditTaskComponent } from './tasks-admin/edit-task/edit-task.component';
 import {FilterPipe} from '../../shared/pipes/filter.pipe';
 import {UsersListComponent} from './users-list/users-list.component';
+import {ViewTaskComponent} from './tasks-user/view-task/view-task.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import {UsersListComponent} from './users-list/users-list.component';
     UsersListComponent,
     AddTaskComponent,
     EditTaskComponent,
+    ViewTaskComponent,
     FilterPipe
   ],
   imports: [
