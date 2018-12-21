@@ -1,40 +1,29 @@
-<div class="view banner-image" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/architecture.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-  <!-- Mask & flexbox options-->
+<div class="view banner-image homepage-banner">
   <div class="mask rgba-gradient d-flex justify-content-center align-items-center">
-    <!-- Content -->
     <div class="container">
-      <!--Grid row-->
       <div class="row">
-        <!--Grid column-->
         <div class="col-md-6 white-text text-center text-md-left mt-xl-5 mb-5 wow fadeInLeft" data-wow-delay="0.3s">
-          <h1 class="h1-responsive font-weight-bold mt-sm-5">Make purchases with our app </h1>
+          <h1 class="h1-responsive font-weight-bold mt-sm-5">Manage your tasks with TMS</h1>
           <hr class="hr-light">
-          <h6 class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi
-            fuga nesciunt
-            dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
-            iste.</h6>
-          <a mdbBtn color="white" mdbWavesEffect>Download</a>
+          <h6 class="mb-4">Sign up in our system and start manage your tasks using the simplest task management system over the World!</h6>
+          <a mdbBtn color="white" mdbWavesEffect routerLink="/account/login">Sign up</a>
           <a mdbBtn color="white" outline="true" mdbWavesEffect>Learn more</a>
         </div>
-        <!--Grid column-->
-        <!--Grid column-->
         <div class="d-flex align-items-center col-md-6 col-xl-5 mt-xl-5 wow fadeInRight" data-wow-delay="0.3s">
           <img src="assets/images/mac.png" alt="" class="img-fluid">
         </div>
-        <!--Grid column-->
       </div>
-      <!--Grid row-->
     </div>
-    <!-- Content -->
   </div>
-  <!-- Mask & flexbox options-->
 </div>
 <div class="container">
-  <div class="row d-flex align-items-center">
+  <h2 class="text-uppercase text-bold text-center mt-5">Contact US</h2>
+  <div class="row d-flex py-5">
     <div class="col-6">
       <app-contact></app-contact>
     </div>
     <div class="col-6">
+      <app-gmap></app-gmap>
     </div>
   </div>
 </div>

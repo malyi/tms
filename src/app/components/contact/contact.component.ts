@@ -1,5 +1,7 @@
 import {Component, HostListener} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MailerService} from '../../shared/services/mailer.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact',
@@ -18,7 +20,10 @@ export class ContactComponent {
     }
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+      private fb: FormBuilder,
+      private mailerService: MailerService,
+      private notification: ToastrService) {
 
     this.contactForm = fb.group({
       'contactFormName': ['', Validators.required],
@@ -30,13 +35,13 @@ export class ContactComponent {
   }
 
   onSubmit() {
-    // this.connectionService.sendMessage(this.contactForm.value).subscribe(() => {
-    //   alert('Your message has been sent.');
-    //   this.contactForm.reset();
-    //   this.disabledSubmitButton = true;
-    // }, error => {
-    //   console.log('Error', error);
-    // });
+    this.mailerService.sendMessage(this.contactForm.value).subscribe(() => {
+        this.notification.success('Your message has been sent.');
+      this.contactForm.reset();
+      this.disabledSubmitButton = true;
+    }, error => {
+      console.log('Error', error);
+    });
   }
 
 }

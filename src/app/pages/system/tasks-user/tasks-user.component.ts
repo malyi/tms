@@ -43,7 +43,6 @@ export class TasksUserComponent implements OnInit {
   viewedTask(task: Task) {
     const taskIndex = this.tasksList.findIndex((item: Task) => item.id === task.id);
     this.tasksList[taskIndex] = task;
-
   }
 
   viewTaskOpen(task: Task) {

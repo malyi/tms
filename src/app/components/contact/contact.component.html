@@ -1,7 +1,7 @@
 <!-- Default form contact -->
 <form class="text-center border border-light p-5" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 
-  <p class="h4 mb-4">Contact us</p>
+  <p class="h4 mb-4">Contact Us</p>
 
   <!-- Name -->
   <input type="text" formControlName="contactFormName" id="defaultContactFormName" mdbInputDirective
@@ -12,14 +12,8 @@
          class="form-control mb-4" placeholder="E-mail">
 
   <!-- Subject -->
-  <label>Subject</label>
-  <select formControlName="contactFormSubjects" class="browser-default custom-select mb-4">
-    <option value="" disabled>Choose option</option>
-    <option value="1" selected>Feedback</option>
-    <option value="2">Report a bug</option>
-    <option value="3">Feature request</option>
-    <option value="4">Feature request</option>
-  </select>
+  <input type="text" formControlName="contactFormSubjects" id="defaultContactFormSubject" mdbInputDirective
+         class="form-control mb-4" placeholder="Subject">
 
   <!-- Message -->
   <div class="form-group">
@@ -38,4 +32,4 @@
           mdbWavesEffect type="submit" [disabled]="disabledSubmitButton">Send</button>
 
 </form>
-<!-- Default form contact -->x
+<!-- Default form contact -->

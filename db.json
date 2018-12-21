@@ -56,6 +56,14 @@
       "password": "1111111",
       "type": "user",
       "id": 9
+    },
+    {
+      "firstName": "Tony",
+      "lastName": "Stark",
+      "email": "kkmalyi@gmail.com",
+      "password": "111111",
+      "type": "user",
+      "id": 10
     }
   ],
   "tasks": [
@@ -111,8 +119,8 @@
       "title": "JKhjkh",
       "description": "jkhjkdshfjkhsd",
       "estimation": 60,
-      "tracked": 0,
-      "progress": 0,
+      "tracked": 40,
+      "progress": 66.66666666666666,
       "user": {
         "firstName": "David",
         "lastName": "Uollis",
@@ -129,7 +137,9 @@
         "email": "k@g.com",
         "type": "admin",
         "id": 2
-      }
+      },
+      "trackedHr": 0,
+      "trackedMin": 40
     },
     {
       "title": "sdfdsfds",
@@ -274,6 +284,126 @@
         "id": 2
       },
       "id": 16
+    },
+    {
+      "title": "Create popup",
+      "description": "Create some cool popup",
+      "estimation": 120,
+      "tracked": 60,
+      "progress": 50,
+      "user": {
+        "firstName": "Oskar",
+        "lastName": "Downly",
+        "email": "od@g.com",
+        "password": "zzzzzzz",
+        "type": "user",
+        "id": 6
+      },
+      "status": "in progress",
+      "id": 17,
+      "author": {
+        "firstName": "Kos",
+        "lastName": "Malyi",
+        "email": "k@g.com",
+        "type": "admin",
+        "id": 2
+      }
+    },
+    {
+      "title": "adas",
+      "description": "asdasd",
+      "estimation": 0,
+      "tracked": 0,
+      "progress": 0,
+      "user": {
+        "firstName": "Jim",
+        "lastName": "Harpet",
+        "email": "jh@g.com",
+        "password": "zzzzzz",
+        "type": "user",
+        "id": 3
+      },
+      "status": "todo",
+      "author": {
+        "firstName": "Kos",
+        "lastName": "Malyi",
+        "email": "k@g.com",
+        "type": "admin",
+        "id": 2
+      },
+      "id": 18
+    },
+    {
+      "title": "daf",
+      "description": "sdfsd",
+      "estimation": 0,
+      "tracked": 0,
+      "progress": 0,
+      "user": {
+        "firstName": "Pam",
+        "lastName": "Gizly",
+        "email": "pg@g.com",
+        "password": "zzzzzzz",
+        "type": "user",
+        "id": 4
+      },
+      "status": "todo",
+      "author": {
+        "firstName": "Kos",
+        "lastName": "Malyi",
+        "email": "k@g.com",
+        "type": "admin",
+        "id": 2
+      },
+      "id": 19
+    },
+    {
+      "title": "SOme new",
+      "description": "kljlkj",
+      "estimation": 0,
+      "tracked": 0,
+      "progress": 0,
+      "user": {
+        "firstName": "Pam",
+        "lastName": "Gizly",
+        "email": "pg@g.com",
+        "password": "zzzzzzz",
+        "type": "user",
+        "id": 4
+      },
+      "status": "todo",
+      "author": {
+        "firstName": "Kos",
+        "lastName": "Malyi",
+        "email": "k@g.com",
+        "type": "admin",
+        "id": 2
+      },
+      "id": 20
+    },
+    {
+      "title": "TItlte task",
+      "description": "das",
+      "estimation": 0,
+      "tracked": 0,
+      "progress": 0,
+      "user": {
+        "firstName": "Tony",
+        "lastName": "Stark",
+        "email": "kkmalyi@gmail.com",
+        "password": "111111",
+        "type": "user",
+        "id": 10
+      },
+      "status": "todo",
+      "author": {
+        "firstName": "Kos",
+        "lastName": "Malyi",
+        "email": "k@g.com",
+        "type": "admin",
+        "id": 2
+      },
+      "id": 33
     }
   ]
 }

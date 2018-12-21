@@ -14,9 +14,10 @@ import {ToastrService} from 'ngx-toastr';
   styleUrls: ['./view-task.component.scss']
 })
 export class ViewTaskComponent implements OnInit {
-  editTaskForm: FormGroup;
+  viewTaskForm: FormGroup;
   userList: Array<User>;
   taskId: number;
+  task: Task;
 
   validationMessages = {
     titleError: 'Title can\'t be blank',
@@ -32,14 +33,14 @@ export class ViewTaskComponent implements OnInit {
       private usersService: UsersService,
       private taskService: TasksService,
       private notification: ToastrService ) {
-    this.editTaskForm = fb.group({
-      taskTitle: ['', Validators.required],
-      taskDescription: ['', Validators.required],
-      estimationHr: [0, Validators.required],
-      estimationMin: [0, Validators.required],
+    this.viewTaskForm = fb.group({
+      taskTitle: [{value: '', disabled: true}, Validators.required,],
+      taskDescription: [{value: '', disabled: true}, Validators.required],
+      estimationHr: [{value: 0, disabled: true}, Validators.required],
+      estimationMin: [{value: 0, disabled: true}, Validators.required],
       trackedHr: [0, Validators.required],
       trackedMin: [0, Validators.required],
-      userId: ['', Validators.required]
+      userId: [{value: '', disabled: true}, Validators.required]
     });
     this.usersService.getAllUsers('full').subscribe((users: Array<User>) => {
       return this.userList = users;
@@ -49,7 +50,7 @@ export class ViewTaskComponent implements OnInit {
   ngOnInit() {
   }
   public open(task) {
-    this.editTaskForm.setValue({
+    this.viewTaskForm.setValue({
       taskTitle: task.title,
       taskDescription: task.description,
       estimationHr: Math.trunc(task.estimation / 60),
@@ -60,19 +61,31 @@ export class ViewTaskComponent implements OnInit {
     });
     this.viewTask.show();
     this.taskId = task.id;
+    this.task = task;
   }
 
   onSubmit() {
-    if (this.editTaskForm.invalid) {
+    if (this.viewTaskForm.invalid) {
       return;
     }
-    const task = this.taskService.generateTask(this.editTaskForm.value, this.userList, this.taskId);
+    const task = this.task;
+    const trackedHr = this.viewTaskForm.get('trackedHr').value;
+    const trackedMin = this.viewTaskForm.get('trackedMin').value;
+    const tracked = trackedHr * 60 + trackedMin;
+    const estimation = task.estimation;
+    const progress = estimation ? (tracked / estimation) * 100 : 0;
+
+    task['trackedHr'] = trackedHr;
+    task['trackedMin'] = trackedMin;
+    task['tracked'] = tracked;
+    task['progress'] = progress;
+
     this.taskService.updateTask(task)
-        .subscribe((respTask: Task) => {
-          this.onTaskView.emit(respTask);
-          this.contentModal.hide();
-          this.notification.success('Task updated!');
-        });
+    .subscribe((respTask: Task) => {
+      this.onTaskView.emit(respTask);
+      this.contentModal.hide();
+      this.notification.success('Task updated!');
+    });
   }
 
 }
